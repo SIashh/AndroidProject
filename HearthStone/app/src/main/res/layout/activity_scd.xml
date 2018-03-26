@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textViewTitre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="43dp"
+        android:text="HearthStone"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/spinnerRace"
+        android:layout_width="220dp"
+        android:layout_height="30dp"
+        android:layout_marginRight="0dp"
+        app:layout_constraintRight_toRightOf="@+id/spinnerFaction"
+        android:layout_marginTop="52dp"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerFaction" />
+
+    <Spinner
+        android:id="@+id/spinnerFaction"
+        android:layout_width="220dp"
+        android:layout_height="30dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginTop="52dp"
+        app:layout_constraintRight_toRightOf="@+id/spinnerType"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerType" />
+
+    <Spinner
+        android:id="@+id/spinnerType"
+        android:layout_width="220dp"
+        android:layout_height="30dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginTop="52dp"
+        app:layout_constraintRight_toRightOf="@+id/spinnerClasse"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerClasse" />
+
+    <Spinner
+        android:id="@+id/spinnerClasse"
+        android:layout_width="220dp"
+        android:layout_height="30dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="62dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTitre"
+        tools:layout_editor_absoluteX="148dp" />
+
+    <TextView
+        android:id="@+id/textViewRace"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Race"
+        android:layout_marginLeft="0dp"
+        app:layout_constraintLeft_toLeftOf="@+id/textViewFaction"
+        android:layout_marginTop="66dp"
+        app:layout_constraintTop_toBottomOf="@+id/textViewFaction" />
+
+
+    <TextView
+        android:id="@+id/textViewType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Type"
+        android:layout_marginTop="66dp"
+        app:layout_constraintTop_toBottomOf="@+id/textViewClasse"
+        android:layout_marginLeft="0dp"
+        app:layout_constraintLeft_toLeftOf="@+id/textViewClasse" />
+
+    <TextView
+        android:id="@+id/textViewFaction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Faction"
+        android:layout_marginLeft="0dp"
+        app:layout_constraintLeft_toLeftOf="@+id/textViewType"
+        android:layout_marginTop="66dp"
+        app:layout_constraintTop_toBottomOf="@+id/textViewType" />
+
+
+
+    <TextView
+        android:id="@+id/textViewClasse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Classe"
+        android:layout_marginTop="70dp"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTitre"
+        android:layout_marginLeft="39dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+</android.support.constraint.ConstraintLayout>
