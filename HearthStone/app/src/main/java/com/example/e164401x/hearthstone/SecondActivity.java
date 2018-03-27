@@ -53,7 +53,7 @@ public class SecondActivity extends AppCompatActivity {
                     race.setSelection(0, true);
                     Intent intent = new Intent(SecondActivity.this,RacePage.class);
                     intent.putExtra("classe", s);
-                    setResult(RESULT_OK,intent);
+                    startActivity(intent);
                     finish();
                 }
             }
@@ -74,7 +74,7 @@ public class SecondActivity extends AppCompatActivity {
                     race.setSelection(0, true);
                     Intent intent = new Intent(SecondActivity.this,RacePage.class);
                     intent.putExtra("type", s);
-                    setResult(RESULT_OK,intent);
+                    startActivity(intent);
                     finish();
                 }
             }
@@ -95,7 +95,7 @@ public class SecondActivity extends AppCompatActivity {
                     race.setSelection(0, true);
                     Intent intent = new Intent(SecondActivity.this,RacePage.class);
                     intent.putExtra("faction", s);
-                    setResult(RESULT_OK,intent);
+                    startActivity(intent);
                     finish();
                 }
             }
@@ -116,7 +116,7 @@ public class SecondActivity extends AppCompatActivity {
                     classe.setSelection(0, true);
                     Intent intent = new Intent(SecondActivity.this,RacePage.class);
                     intent.putExtra("race", s);
-                    setResult(RESULT_OK,intent);
+                    startActivity(intent);
                     finish();
                 }
             }

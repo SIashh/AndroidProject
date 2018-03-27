@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -34,7 +35,6 @@ public class RacePage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_race_page);
 
-
         Bundle extras = getIntent().getExtras();
         if(extras == null){
             return;
@@ -44,18 +44,10 @@ public class RacePage extends AppCompatActivity {
         String type = extras.getString("type");
         String faction = extras.getString("faction");
         String race = extras.getString("race");
-
-//        String classe ="druid";
-//        String type = "weapon";
-//        String faction = "alliance";
-//        String race = "dragon";
         String uri = "";
 
+        final ListView l = (ListView) findViewById(R.id.list);
         final List<String> liste = new ArrayList<String>();
-//        liste.add(classe);
-//        liste.add(type);
-//        liste.add(faction);
-//        liste.add(race);
 
         if (classe != null){
             uri = "classes/"+classe;
@@ -84,10 +76,8 @@ public class RacePage extends AppCompatActivity {
                             System.out.println(json);
                             for(int i=0; i<json.length();i++){
                                     liste.add(json.getJSONObject(i).get("name").toString());
-//                                System.out.println(json.getJSONObject(i).get("name").toString());
                             }
                             ArrayAdapter<String> aa = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, liste);
-                            ListView l = (ListView) findViewById(R.id.list);
                             l.setAdapter(aa);
 
                         }catch (JSONException e) {
@@ -109,6 +99,44 @@ public class RacePage extends AppCompatActivity {
             };
 
         r.add(s);
+
+        l.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long lg) {
+                System.out.println(adapterView.getItemAtPosition(i));
+                StringRequest s2 = new StringRequest(
+                        Request.Method.GET,
+                        "https://omgvamp-hearthstone-v1.p.mashape.com/cards/"+adapterView.getItemAtPosition(i),
+                        new Response.Listener<String>() {
+                            public void onResponse(String response) {
+                                try{
+                                    JSONArray json = new JSONArray(response);
+                                    System.out.println(json);
+                                    for(int i=0; i<json.length();i++){
+                                        liste.add(json.getJSONObject(i).get("name").toString());
+                                    }
+                                    ArrayAdapter<String> aa = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, liste);
+                                    l.setAdapter(aa);
+
+                                }catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+                            }},
+                        new Response.ErrorListener() {
+                            public void onErrorResponse(VolleyError error) {
+                                System.out.println(error);
+                                System.out.println("non");
+
+                            }})
+                {
+                    public Map<String,String> getHeaders(){
+                        Map<String,String> params = new HashMap<String, String>();
+                        params.put("X-Mashape-Key", "kBfb5u2MKgmshg7opNAJHdhzn297p1Fa7egjsnw03a7NSRflzw");
+                        return params;
+                    }
+                };
+            }
+        });
 
 
     }
