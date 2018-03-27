@@ -1,5 +1,6 @@
 package com.example.e164401x.hearthstone;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -50,6 +51,10 @@ public class SecondActivity extends AppCompatActivity {
                     type.setSelection(0, true);
                     faction.setSelection(0, true);
                     race.setSelection(0, true);
+                    Intent intent = new Intent(SecondActivity.this,RacePage.class);
+                    intent.putExtra("classe", s);
+                    setResult(RESULT_OK,intent);
+                    finish();
                 }
             }
 
@@ -67,6 +72,10 @@ public class SecondActivity extends AppCompatActivity {
                     classe.setSelection(0, true);
                     faction.setSelection(0, true);
                     race.setSelection(0, true);
+                    Intent intent = new Intent(SecondActivity.this,RacePage.class);
+                    intent.putExtra("type", s);
+                    setResult(RESULT_OK,intent);
+                    finish();
                 }
             }
 
@@ -84,6 +93,10 @@ public class SecondActivity extends AppCompatActivity {
                     type.setSelection(0, true);
                     classe.setSelection(0, true);
                     race.setSelection(0, true);
+                    Intent intent = new Intent(SecondActivity.this,RacePage.class);
+                    intent.putExtra("faction", s);
+                    setResult(RESULT_OK,intent);
+                    finish();
                 }
             }
 
@@ -101,6 +114,10 @@ public class SecondActivity extends AppCompatActivity {
                     type.setSelection(0, true);
                     faction.setSelection(0, true);
                     classe.setSelection(0, true);
+                    Intent intent = new Intent(SecondActivity.this,RacePage.class);
+                    intent.putExtra("race", s);
+                    setResult(RESULT_OK,intent);
+                    finish();
                 }
             }
 

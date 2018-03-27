@@ -35,20 +35,20 @@ public class RacePage extends AppCompatActivity {
         setContentView(R.layout.activity_race_page);
 
 
-//        Bundle extras = getIntent().getExtras();
-//        if(extras == null){
-//            return;
-//        }
+        Bundle extras = getIntent().getExtras();
+        if(extras == null){
+            return;
+        }
 
-//        String classe = extras.getString("classe");
-//        String type = extras.getString("type");
-//        String faction = extras.getString("faction");
-//        String race = extras.getString("race");
+        String classe = extras.getString("classe");
+        String type = extras.getString("type");
+        String faction = extras.getString("faction");
+        String race = extras.getString("race");
 
-        String classe ="druid";
-        String type = "weapon";
-        String faction = "alliance";
-        String race = "dragon";
+//        String classe ="druid";
+//        String type = "weapon";
+//        String faction = "alliance";
+//        String race = "dragon";
         String uri = "";
 
         final List<String> liste = new ArrayList<String>();
