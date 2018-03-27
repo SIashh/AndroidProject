@@ -1,6 +1,7 @@
 package com.example.e164401x.hearthstone;
 
 import android.app.DownloadManager;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -112,11 +113,10 @@ public class RacePage extends AppCompatActivity {
                                 try{
                                     JSONArray json = new JSONArray(response);
                                     System.out.println(json);
-                                    for(int i=0; i<json.length();i++){
-                                        liste.add(json.getJSONObject(i).get("name").toString());
-                                    }
-                                    ArrayAdapter<String> aa = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, liste);
-                                    l.setAdapter(aa);
+                                    Intent i = new Intent(RacePage.this,SoloCard.class);
+                                    i.putExtra("json",json.toString());
+                                    startActivity(i);
+                                    finish();
 
                                 }catch (JSONException e) {
                                     e.printStackTrace();
