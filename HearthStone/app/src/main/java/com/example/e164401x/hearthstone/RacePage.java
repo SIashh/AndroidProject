@@ -49,6 +49,7 @@ public class RacePage extends AppCompatActivity {
         String type = "weapon";
         String faction = "alliance";
         String race = "dragon";
+        String uri = "";
 
         final List<String> liste = new ArrayList<String>();
 //        liste.add(classe);
@@ -56,11 +57,26 @@ public class RacePage extends AppCompatActivity {
 //        liste.add(faction);
 //        liste.add(race);
 
+        if (classe != null){
+            uri = "classes/"+classe;
+        }
+        else if (type != null){
+            uri = "types/"+type;
+        }
+        else if(faction !=null){
+            uri = "factions/"+faction;
+        }
+        else if (race != null){
+            uri = "races/"+race;
+        }
+        else{
+            System.out.println(0);
+        }
 
         RequestQueue r = Volley.newRequestQueue(getApplicationContext());
         StringRequest s = new StringRequest(
                 Request.Method.GET,
-                "https://omgvamp-hearthstone-v1.p.mashape.com/cards/classes/Mage",
+                "https://omgvamp-hearthstone-v1.p.mashape.com/cards/"+uri,
                 new Response.Listener<String>() {
                     public void onResponse(String response) {
                         try{
@@ -70,7 +86,6 @@ public class RacePage extends AppCompatActivity {
                                     liste.add(json.getJSONObject(i).get("name").toString());
 //                                System.out.println(json.getJSONObject(i).get("name").toString());
                             }
-
                             ArrayAdapter<String> aa = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, liste);
                             ListView l = (ListView) findViewById(R.id.list);
                             l.setAdapter(aa);
