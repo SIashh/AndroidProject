@@ -65,7 +65,7 @@ public class RacePage extends AppCompatActivity {
             System.out.println(0);
         }
 
-        RequestQueue r = Volley.newRequestQueue(getApplicationContext());
+        final RequestQueue r = Volley.newRequestQueue(getApplicationContext());
         StringRequest s = new StringRequest(
                 Request.Method.GET,
                 "https://omgvamp-hearthstone-v1.p.mashape.com/cards/"+uri,
@@ -135,6 +135,7 @@ public class RacePage extends AppCompatActivity {
                         return params;
                     }
                 };
+                r.add(s2);
             }
         });
 
