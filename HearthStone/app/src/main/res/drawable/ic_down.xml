@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="oval">
+        <solid android:color="@color/mySpinnerTextColor"/>
+        <corners android:radius="20dp"></corners>
+        <stroke android:color="#888888" android:width="5dp"/>
+    </shape>
+</selector>

@@ -39,7 +39,6 @@ public class SecondActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scd);
 
-        TextView titre = (TextView) findViewById(R.id.textViewTitre);
         TextView labelClasse = (TextView) findViewById(R.id.textViewClasse);
         TextView labelType = (TextView) findViewById(R.id.textViewType);
         TextView labelFaction = (TextView) findViewById(R.id.textViewFaction);
@@ -179,8 +178,10 @@ public class SecondActivity extends AppCompatActivity {
             for(int i = 0; i<arrayClasses.length(); i++) {
                 classesList.add(arrayClasses.get(i).toString());
             }
-            ArrayAdapter<String> aa = new ArrayAdapter<String>(getApplicationContext(), R.layout.spinner_item, classesList);
-            s.setAdapter(aa);
+            CustomSpinnerAdapter customSpinnerAdapter = new CustomSpinnerAdapter(getApplicationContext(), classesList);
+            s.setAdapter(customSpinnerAdapter);
+//            ArrayAdapter<String> aa = new ArrayAdapter<String>(getApplicationContext(), R.layout.spinner_item, classesList);
+//            s.setAdapter(aa);
         } catch (JSONException je) {
             System.out.println(je.getMessage());
         }
