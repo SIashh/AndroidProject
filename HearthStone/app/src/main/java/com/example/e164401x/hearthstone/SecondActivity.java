@@ -1,6 +1,7 @@
 package com.example.e164401x.hearthstone;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -38,10 +39,23 @@ public class SecondActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scd);
 
+        TextView titre = (TextView) findViewById(R.id.textViewTitre);
+
+        TextView labelClasse = (TextView) findViewById(R.id.textViewClasse);
+
+        TextView labelType = (TextView) findViewById(R.id.textViewType);
+
+        TextView labelFaction = (TextView) findViewById(R.id.textViewFaction);
+
+        TextView labelRace = (TextView) findViewById(R.id.textViewRace);
+
+
+
         final Spinner classe = (Spinner) findViewById(R.id.spinnerClasse);
         final Spinner type = (Spinner) findViewById(R.id.spinnerType);
         final Spinner faction = (Spinner) findViewById(R.id.spinnerFaction);
         final Spinner race = (Spinner) findViewById(R.id.spinnerRace);
+
 
         classe.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -169,7 +183,7 @@ public class SecondActivity extends AppCompatActivity {
             for(int i = 0; i<arrayClasses.length(); i++) {
                 classesList.add(arrayClasses.get(i).toString());
             }
-            ArrayAdapter<String> aa = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, classesList);
+            ArrayAdapter<String> aa = new ArrayAdapter<String>(getApplicationContext(), R.layout.spinner_item, classesList);
             s.setAdapter(aa);
         } catch (JSONException je) {
             System.out.println(je.getMessage());
