@@ -1,9 +1,11 @@
 package com.example.e164401x.hearthstone;
 
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -11,6 +13,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+
+import static android.R.color.white;
 
 public class SoloCard extends AppCompatActivity {
 
@@ -25,21 +29,35 @@ public class SoloCard extends AppCompatActivity {
         }
 
         final String img = b.getString("img");
+        System.out.println(img);
+        final String type = b.getString("type");
+        final String rarity = b.getString("rarity");
+        final String classe = b.getString("classe");
+        final ImageView i = (ImageView) findViewById(R.id.imageView);
+
 
         RequestQueue r = Volley.newRequestQueue(getApplicationContext());
-        System.out.println("dehors");
 
-        if (img != "") {
-            System.out.println("dedans");
+        if(classe !=""){
+            TextView t = (TextView) findViewById(R.id.textView);
+            t.setText(classe);
+            t.setTextColor(getResources().getColor(R.color.whitee));
+            t.setTextSize(40);
+            System.out.println("fin texte view");
+        }
+
+
+        if (img != null) {
+            System.out.println("dans le chargement");
             StringRequest s = new StringRequest(
                     Request.Method.GET,
                     "http://square.github.io/picasso/",
                     new Response.Listener<String>() {
                         public void onResponse(String response) {
-                            ImageView i = (ImageView) findViewById(R.id.imageView);
                             com.squareup.picasso.Picasso.Builder p = new com.squareup.picasso.Picasso.Builder(getApplicationContext());
                             com.squareup.picasso.Picasso pic = p.build();
                             pic.load(android.net.Uri.parse(img)).into(i);
+                            System.out.println("fini");
                         }
                     },
                     new Response.ErrorListener() {
@@ -51,6 +69,11 @@ public class SoloCard extends AppCompatActivity {
                     }
             );
             r.add(s);
+        }
+
+        if(i.getResources() == null){
+            i.setImageResource(R.mipmap.notfound);
+            System.out.println("notfound");
         }
 
     }

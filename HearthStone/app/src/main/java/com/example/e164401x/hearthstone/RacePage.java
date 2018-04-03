@@ -112,11 +112,23 @@ public class RacePage extends AppCompatActivity {
                             public void onResponse(String response) {
                                 try{
                                     JSONArray json = new JSONArray(response);
+                                    System.out.println("test");
                                     System.out.println(json);
                                     Intent i = new Intent(RacePage.this,SoloCard.class);
                                     i.putExtra("json",json.toString());
                                     i.putExtra("name",json.getJSONObject(0).get("name").toString());
-                                    i.putExtra("img",json.getJSONObject(0).get("img").toString());
+                                    try {
+                                        i.putExtra("img", json.getJSONObject(0).get("img").toString());
+                                    }catch (JSONException e){
+                                        e.printStackTrace();
+                                    }
+                                    i.putExtra("type",json.getJSONObject(0).get("type").toString());
+                                    i.putExtra("classe",json.getJSONObject(0).get("playerClass").toString());
+                                    try{
+                                        i.putExtra("rarity",json.getJSONObject(0).get("rarity").toString());
+                                    }catch(JSONException e){
+                                        e.printStackTrace();
+                                    }
                                     startActivity(i);
 
                                 }catch (JSONException e) {

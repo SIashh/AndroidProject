@@ -5,18 +5,37 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.e164401x.hearthstone.SoloCard"
-    android:background="@mipmap/solocard"
+    android:background="@mipmap/bgsoloo"
     android:scaleType="centerCrop"
 >
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/imageView"
-        tools:layout_editor_absoluteY="0dp"
-        tools:layout_editor_absoluteX="0dp" />
+        android:layout_width="233dp"
+        android:layout_height="411dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.164"
+        app:layout_constraintHorizontal_bias="0.503"
+        tools:layout_editor_absoluteY="-14dp"
+        tools:layout_editor_absoluteX="64dp" />
 
-
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="226dp"
+        android:layout_height="88dp"
+        android:layout_marginRight="37dp"
+        android:layout_marginTop="31dp"
+        android:text="test"
+        android:textAppearance="@style/TextAppearance.AppCompat.Light.Widget.PopupMenu.Large"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </android.support.constraint.ConstraintLayout>
