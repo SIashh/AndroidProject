@@ -4,12 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@mipmap/heroes_of_warcraft_hearthstone_logo_95379_1920x1080"/>
+    android:layout_height="match_parent"
+    android:background="@mipmap/bgfirst"
+>
 
     <TextView
         android:id="@+id/textViewTitre"
@@ -27,9 +24,9 @@
         android:id="@+id/spinnerRace"
         android:layout_width="220dp"
         android:layout_height="30dp"
-        android:layout_marginRight="0dp"
+        android:layout_marginRight="-13dp"
         app:layout_constraintRight_toRightOf="@+id/spinnerFaction"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="177dp"
         app:layout_constraintTop_toBottomOf="@+id/spinnerFaction" />
 
     <Spinner
@@ -37,7 +34,7 @@
         android:layout_width="220dp"
         android:layout_height="30dp"
         android:layout_marginRight="0dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="61dp"
         app:layout_constraintRight_toRightOf="@+id/spinnerType"
         app:layout_constraintTop_toBottomOf="@+id/spinnerType" />
 
@@ -65,9 +62,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Race"
-        android:layout_marginLeft="0dp"
+        android:layout_marginLeft="-7dp"
         app:layout_constraintLeft_toLeftOf="@+id/textViewFaction"
-        android:layout_marginTop="66dp"
+        android:layout_marginTop="194dp"
         app:layout_constraintTop_toBottomOf="@+id/textViewFaction" />
 
 

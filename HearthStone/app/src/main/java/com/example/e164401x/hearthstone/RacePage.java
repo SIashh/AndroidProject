@@ -115,9 +115,9 @@ public class RacePage extends AppCompatActivity {
                                     System.out.println(json);
                                     Intent i = new Intent(RacePage.this,SoloCard.class);
                                     i.putExtra("json",json.toString());
+                                    i.putExtra("name",json.getJSONObject(0).get("name").toString());
                                     i.putExtra("img",json.getJSONObject(0).get("img").toString());
                                     startActivity(i);
-                                    finish();
 
                                 }catch (JSONException e) {
                                     e.printStackTrace();
