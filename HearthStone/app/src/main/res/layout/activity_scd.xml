@@ -7,9 +7,11 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@mipmap/heroes_of_warcraft_hearthstone_logo_95379_1920x1080"/>
+        android:layout_width="23dp"
+        android:layout_height="551dp"
+        android:background="@mipmap/heroes_of_warcraft_hearthstone_logo_95379_1920x1080"
+        tools:layout_editor_absoluteY="8dp"
+        tools:layout_editor_absoluteX="8dp" />
 
     <TextView
         android:id="@+id/textViewTitre"
@@ -24,13 +26,14 @@
         android:textSize="30sp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
 
     <Spinner
         android:id="@+id/spinnerRace"
         android:layout_width="220dp"
         android:layout_height="30dp"
-        android:layout_marginRight="-1dp"
         app:layout_constraintRight_toRightOf="@+id/spinnerFaction"
         android:layout_marginTop="60dp"
         app:layout_constraintTop_toBottomOf="@+id/spinnerFaction" />
@@ -39,7 +42,6 @@
         android:id="@+id/spinnerFaction"
         android:layout_width="220dp"
         android:layout_height="30dp"
-        android:layout_marginRight="0dp"
         android:layout_marginTop="60dp"
         app:layout_constraintRight_toRightOf="@+id/spinnerType"
         app:layout_constraintTop_toBottomOf="@+id/spinnerType" />
@@ -51,7 +53,8 @@
         android:layout_marginTop="68dp"
         app:layout_constraintTop_toBottomOf="@+id/spinnerClasse"
         android:layout_marginRight="16dp"
-        app:layout_constraintRight_toRightOf="parent" />
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginEnd="16dp" />
 
     <Spinner
         android:id="@+id/spinnerClasse"
@@ -60,14 +63,14 @@
         android:layout_marginRight="16dp"
         android:layout_marginTop="94dp"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTitre" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewTitre"
+        android:layout_marginEnd="16dp" />
 
     <TextView
         android:id="@+id/textViewRace"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Race"
-        android:layout_marginLeft="0dp"
         android:textSize="20sp"
         android:textColor="@color/mySpinnerTextColor"
         app:layout_constraintLeft_toLeftOf="@+id/textViewFaction"
@@ -83,7 +86,6 @@
         android:layout_marginTop="66dp"
         android:textColor="@color/mySpinnerTextColor"
         app:layout_constraintTop_toBottomOf="@+id/textViewClasse"
-        android:layout_marginLeft="0dp"
         android:textSize="20sp"
         app:layout_constraintLeft_toLeftOf="@+id/textViewClasse" />
 
@@ -92,7 +94,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Faction"
-        android:layout_marginLeft="0dp"
         android:textColor="@color/mySpinnerTextColor"
         app:layout_constraintLeft_toLeftOf="@+id/textViewType"
         android:textSize="20sp"
@@ -111,5 +112,5 @@
         android:layout_marginLeft="39dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="@+id/spinnerClasse"
-        android:layout_marginTop="0dp" />
+        android:layout_marginStart="39dp" />
 </android.support.constraint.ConstraintLayout>

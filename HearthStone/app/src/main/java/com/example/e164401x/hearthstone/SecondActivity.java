@@ -40,13 +40,9 @@ public class SecondActivity extends AppCompatActivity {
         setContentView(R.layout.activity_scd);
 
         TextView titre = (TextView) findViewById(R.id.textViewTitre);
-
         TextView labelClasse = (TextView) findViewById(R.id.textViewClasse);
-
         TextView labelType = (TextView) findViewById(R.id.textViewType);
-
         TextView labelFaction = (TextView) findViewById(R.id.textViewFaction);
-
         TextView labelRace = (TextView) findViewById(R.id.textViewRace);
 
 
