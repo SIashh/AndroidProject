@@ -6,6 +6,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@mipmap/heroes_of_warcraft_hearthstone_logo_95379_1920x1080"/>
+
     <TextView
         android:id="@+id/textViewTitre"
         android:layout_width="wrap_content"
