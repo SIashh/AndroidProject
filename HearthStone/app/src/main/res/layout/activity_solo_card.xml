@@ -6,4 +6,9 @@
     android:layout_height="match_parent"
     tools:context="com.example.e164401x.hearthstone.SoloCard">
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"/>
+
 </android.support.constraint.ConstraintLayout>
