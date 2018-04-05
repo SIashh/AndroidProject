@@ -31,11 +31,13 @@ public class SoloCard extends AppCompatActivity {
         }
 
         final String img = b.getString("img");
-        System.out.println(img);
+        final String uriGold = b.getString("imgGold");
+        System.out.println(b);
         final String type = b.getString("type");
         final String rarity = b.getString("rarity");
         final String classe = b.getString("classe");
         final ImageView i = (ImageView) findViewById(R.id.imageView);
+        final ImageView imgGold = (ImageView) findViewById(R.id.imageGold);
 
 
         RequestQueue r = Volley.newRequestQueue(getApplicationContext());
@@ -59,6 +61,10 @@ public class SoloCard extends AppCompatActivity {
                             com.squareup.picasso.Picasso.Builder p = new com.squareup.picasso.Picasso.Builder(getApplicationContext());
                             com.squareup.picasso.Picasso pic = p.build();
                             pic.load(android.net.Uri.parse(img)).into(i);
+
+                            com.squareup.picasso.Picasso.Builder p2 = new com.squareup.picasso.Picasso.Builder(getApplicationContext());
+                            com.squareup.picasso.Picasso pic2 = p2.build();
+                            pic2.load(android.net.Uri.parse(uriGold)).into(imgGold);
                             System.out.println("fini");
                         }
                     },

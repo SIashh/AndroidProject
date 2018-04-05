@@ -137,6 +137,11 @@ public class RacePage extends AppCompatActivity {
                                         }catch (JSONException e){
                                             e.printStackTrace();
                                         }
+                                        try {
+                                            i.putExtra("imgGold", json.getJSONObject(0).get("imgGold").toString());
+                                        }catch (JSONException e){
+                                            e.printStackTrace();
+                                        }
                                         i.putExtra("type",json.getJSONObject(0).get("type").toString());
                                         i.putExtra("classe",json.getJSONObject(0).get("playerClass").toString());
                                         try{
@@ -189,15 +194,49 @@ class MonAdapteur extends ArrayAdapter{
         Gson gson = new Gson();
         String json = gson.toJson(carte);
         try{
-            JSONObject j = new JSONObject(json);
+            final JSONObject j = new JSONObject(json);
             TextView name = (TextView) newView.findViewById(R.id.name);
             name.setText(j.getJSONObject("nameValuePairs").get("name").toString());
             TextView rarity = (TextView) newView.findViewById(R.id.type);
             System.out.println("test");
-//            System.out.println(carte);
+            System.out.println(carte);
             rarity.setText(j.getJSONObject("nameValuePairs").get("type").toString());
             ImageView arrow = (ImageView) newView.findViewById(R.id.arrow);
             arrow.setBackgroundResource(R.mipmap.arrow);
+
+
+            final ImageView image = (ImageView) newView.findViewById(R.id.image);
+            image.setBackgroundResource(R.mipmap.image);
+
+            RequestQueue r = Volley.newRequestQueue(getContext());
+            StringRequest s = new StringRequest(
+                    Request.Method.GET,
+                    "http://square.github.io/picasso/",
+                    new Response.Listener<String>() {
+                        public void onResponse(String response) {
+                            com.squareup.picasso.Picasso.Builder p = new com.squareup.picasso.Picasso.Builder(getContext());
+                            com.squareup.picasso.Picasso pic = p.build();
+                            try{
+                                pic.load(android.net.Uri.parse(j.getJSONObject("nameValuePairs").get("img").toString())).into(image);
+
+                            }catch(JSONException e){
+                                e.printStackTrace();
+                            }
+                            System.out.println("fini");
+                        }
+                    },
+                    new Response.ErrorListener() {
+                        public void onErrorResponse(VolleyError error) {
+                            Log.e("VOLLEY", error.getMessage());
+                            System.out.println("problème");
+
+                        }
+                    }
+            );
+            r.add(s);
+
+
+
         }catch(JSONException e){
             e.printStackTrace();
         }
