@@ -5,8 +5,9 @@
     android:layout_height="wrap_content"
     android:textSize="20sp"
     android:background="@drawable/myspinner"
-    android:paddingStart="5sp"
-    android:paddingTop="2sp"
-    android:paddingBottom="2sp"
+    android:textColor="@color/mySpinnerTextColor"
+    android:paddingStart="10sp"
+    android:paddingTop="5sp"
+    android:paddingBottom="5sp"
     android:fontFamily="Belwe Bd BT"
     />
