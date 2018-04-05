@@ -104,7 +104,7 @@ public class RacePage extends AppCompatActivity {
                     }},
                 new Response.ErrorListener() {
                     public void onErrorResponse(VolleyError error) {
-                        Toast t = Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_SHORT);
+                        Toast t = Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_LONG);
                         t.show();
 
                     }})
@@ -164,7 +164,7 @@ public class RacePage extends AppCompatActivity {
                                 }},
                             new Response.ErrorListener() {
                                 public void onErrorResponse(VolleyError error) {
-                                    Toast t = Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_SHORT);
+                                    Toast t = Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_LONG);
                                     t.show();
 
 
@@ -240,7 +240,7 @@ class MonAdapteur extends ArrayAdapter{
                     },
                     new Response.ErrorListener() {
                         public void onErrorResponse(VolleyError error) {
-                            Toast t = Toast.makeText(getContext(),error.toString(),Toast.LENGTH_SHORT);
+                            Toast t = Toast.makeText(getContext(),error.toString(),Toast.LENGTH_LONG);
                             t.show();
 
                         }

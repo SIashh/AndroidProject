@@ -165,7 +165,7 @@ public class SecondActivity extends AppCompatActivity {
                             }},
                         new Response.ErrorListener() {
                             public void onErrorResponse(VolleyError error) {
-                                Toast t = Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_SHORT);
+                                Toast t = Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_LONG);
                                 t.show();
 
                                 System.out.println(error.getMessage());
