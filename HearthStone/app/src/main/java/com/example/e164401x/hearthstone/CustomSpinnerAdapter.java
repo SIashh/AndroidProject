@@ -50,7 +50,7 @@ public class CustomSpinnerAdapter extends BaseAdapter implements SpinnerAdapter 
         TextView txt = new TextView(this.activity);
         txt.setPadding(16, 16, 16, 16);
         txt.setTextSize(18);
-        txt.setBackgroundColor(getResource().getColor(R.color.mySpinnerBackground));
+//        txt.setBackgroundColor(getResource().getColor(R.color.mySpinnerBackground));
         txt.setGravity(Gravity.CENTER_VERTICAL);
         txt.setText(asr.get(position));
         txt.setTextColor(Color.parseColor("#856226"));
