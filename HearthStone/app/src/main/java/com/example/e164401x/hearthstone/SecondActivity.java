@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -47,6 +48,11 @@ public class SecondActivity extends AppCompatActivity {
         TextView labelType = (TextView) findViewById(R.id.textViewType);
         TextView labelFaction = (TextView) findViewById(R.id.textViewFaction);
         TextView labelRace = (TextView) findViewById(R.id.textViewRace);
+        labelClasse.setGravity(Gravity.CENTER);
+        labelType.setGravity(Gravity.CENTER);
+        labelFaction.setGravity(Gravity.CENTER);
+        labelRace.setGravity(Gravity.CENTER);
+
 
 
 
@@ -87,6 +93,7 @@ public class SecondActivity extends AppCompatActivity {
                     Intent intent = new Intent(SecondActivity.this,RacePage.class);
                     intent.putExtra("type", s);
                     startActivity(intent);
+
                 }
             }
 
@@ -158,7 +165,7 @@ public class SecondActivity extends AppCompatActivity {
                             }},
                         new Response.ErrorListener() {
                             public void onErrorResponse(VolleyError error) {
-                                System.out.println("error");
+                                Toast t = Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_SHORT);
                                 System.out.println(error.getMessage());
                             }})
                 {

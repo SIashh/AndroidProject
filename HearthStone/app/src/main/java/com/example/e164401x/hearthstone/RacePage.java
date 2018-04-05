@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,8 +38,12 @@ import java.util.Map;
 
 public class RacePage extends AppCompatActivity {
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_race_page);
@@ -98,9 +104,7 @@ public class RacePage extends AppCompatActivity {
                     }},
                 new Response.ErrorListener() {
                     public void onErrorResponse(VolleyError error) {
-                        System.out.println(error);
-                        System.out.println("non");
-
+                        Toast t = Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_SHORT);
                     }})
         {
             public Map<String,String> getHeaders(){
@@ -120,6 +124,8 @@ public class RacePage extends AppCompatActivity {
                 String json = gson.toJson(adapterView.getItemAtPosition(i));
                 try{
                     JSONObject j = new JSONObject(json);
+                    System.out.println(j.getJSONObject("nameValuePairs").get("cardId").toString());
+
                     StringRequest s2 = new StringRequest(
                             Request.Method.GET,
                             "https://omgvamp-hearthstone-v1.p.mashape.com/cards/"+j.getJSONObject("nameValuePairs").get("cardId").toString(),
@@ -145,20 +151,18 @@ public class RacePage extends AppCompatActivity {
                                         i.putExtra("type",json.getJSONObject(0).get("type").toString());
                                         i.putExtra("classe",json.getJSONObject(0).get("playerClass").toString());
                                         try{
-                                            i.putExtra("rarity",json.getJSONObject(0).get("rarity").toString());
+                                            i.putExtra("cardSet",json.getJSONObject(0).get("cardSet").toString());
                                         }catch(JSONException e){
                                             e.printStackTrace();
                                         }
                                         startActivity(i);
-
                                     }catch (JSONException e) {
                                         e.printStackTrace();
                                     }
                                 }},
                             new Response.ErrorListener() {
                                 public void onErrorResponse(VolleyError error) {
-                                    System.out.println(error);
-                                    System.out.println("non");
+                                    Toast t = Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_SHORT);
 
                                 }})
                     {
@@ -178,6 +182,8 @@ public class RacePage extends AppCompatActivity {
     }
 }
 
+
+
 class MonAdapteur extends ArrayAdapter{
 
     public MonAdapteur(Activity context, ArrayList<JSONObject> cartes){
@@ -196,11 +202,14 @@ class MonAdapteur extends ArrayAdapter{
         try{
             final JSONObject j = new JSONObject(json);
             TextView name = (TextView) newView.findViewById(R.id.name);
+            name.setGravity(Gravity.CENTER);
+
+
             name.setText(j.getJSONObject("nameValuePairs").get("name").toString());
             TextView rarity = (TextView) newView.findViewById(R.id.type);
-            System.out.println("test");
-            System.out.println(carte);
             rarity.setText(j.getJSONObject("nameValuePairs").get("type").toString());
+            rarity.setGravity(Gravity.CENTER);
+
             ImageView arrow = (ImageView) newView.findViewById(R.id.arrow);
             arrow.setBackgroundResource(R.mipmap.arrow);
 
@@ -227,9 +236,7 @@ class MonAdapteur extends ArrayAdapter{
                     },
                     new Response.ErrorListener() {
                         public void onErrorResponse(VolleyError error) {
-                            Log.e("VOLLEY", error.getMessage());
-                            System.out.println("problème");
-
+                            Toast t = Toast.makeText(getContext(),error.toString(),Toast.LENGTH_SHORT);
                         }
                     }
             );
