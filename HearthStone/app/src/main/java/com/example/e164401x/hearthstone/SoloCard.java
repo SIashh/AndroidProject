@@ -101,7 +101,7 @@ public class SoloCard extends AppCompatActivity {
                         public void onErrorResponse(VolleyError error) {
                             Log.e("VOLLEY", error.getMessage());
                             Toast t = Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_SHORT);
-
+                            t.show();
                         }
                     }
             );

@@ -105,6 +105,8 @@ public class RacePage extends AppCompatActivity {
                 new Response.ErrorListener() {
                     public void onErrorResponse(VolleyError error) {
                         Toast t = Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_SHORT);
+                        t.show();
+
                     }})
         {
             public Map<String,String> getHeaders(){
@@ -163,6 +165,8 @@ public class RacePage extends AppCompatActivity {
                             new Response.ErrorListener() {
                                 public void onErrorResponse(VolleyError error) {
                                     Toast t = Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_SHORT);
+                                    t.show();
+
 
                                 }})
                     {
@@ -237,6 +241,8 @@ class MonAdapteur extends ArrayAdapter{
                     new Response.ErrorListener() {
                         public void onErrorResponse(VolleyError error) {
                             Toast t = Toast.makeText(getContext(),error.toString(),Toast.LENGTH_SHORT);
+                            t.show();
+
                         }
                     }
             );
